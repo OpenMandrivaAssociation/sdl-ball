@@ -1,16 +1,15 @@
-%define rcN rc4
-Name: sdl-ball
-Version: 1.0
-Release: %mkrel 1
-Summary: Free/OpenSource brick-breaking game with pretty graphics
-Group: Games/Arcade
-License: GPLv2+
-Url: http://sdl-ball.sourceforge.net/
-Source0: http://dl.sourceforge.net/sourceforge/%name/%name-%version.tar.bz2
+%define rcN	rc4
+Name:	sdl-ball
+Version:	1.0
+Release: 	%mkrel 1
+Summary:	Free/OpenSource brick-breaking game with pretty graphics
+Group:	Games/Arcade
+License:	GPLv2+
+Url:	http://sdl-ball.sourceforge.net/
+Source0:	http://dl.sourceforge.net/sourceforge/%name/%name-%version.tar.bz2
 #Source1: %name.png
 #Source2: %name.desktop
-Patch: %name.as-needed.patch
-Packager: Fr. Br. George <george@altlinux.ru>
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 # Automatically added by buildreq on Wed Nov 12 2008
 BuildRequires: gcc-c++ GL-devel SDL-devel SDL_image-devel SDL_mixer-devel SDL_ttf-devel gimp-devel
@@ -32,8 +31,7 @@ JavaScript-based (see %_defaultdocdir/%name-%version/index.html) and GIMP plugin
 Start gimp from a terminal in order to record the output from the plugin (you need that)
 
 %prep
-%setup -n %name
-#patch
+%setup -q -n %name
 
 %build
 %make DATADIR=%_gamesdatadir/%name/
@@ -41,6 +39,8 @@ pushd leveleditor/gimp-leveleditor
 gimptool-2.0 --build gimp-sdlball.c
 
 %install
+rm -rf %{buildroot}
+
 mkdir -p %buildroot%_gamesdatadir %buildroot%_gamesbindir
 mkdir -p %buildroot%_libdir/gimp/2.0/plug-ins
 install -s %name %buildroot%_gamesbindir
@@ -57,6 +57,9 @@ cp -a themes %buildroot%_gamesdatadir/%name
 ##mkdir -p $RPM_BUILD_ROOT%_niconsdir
 ##install -p -m 644 #SOURCE1 \
 ##  $RPM_BUILD_ROOT%_niconsdir
+
+%clean
+rm -rf %{buildroot}
 
 %files
 %doc README changelog.txt leveleditor
