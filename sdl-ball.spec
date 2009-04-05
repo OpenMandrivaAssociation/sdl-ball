@@ -34,6 +34,7 @@ Start gimp from a terminal in order to record the output from the plugin (you ne
 %setup -q -n %name
 
 %build
+%setup_compile_flags
 %make DATADIR=%_gamesdatadir/%name/
 pushd leveleditor/gimp-leveleditor
 gimptool-2.0 --build gimp-sdlball.c
