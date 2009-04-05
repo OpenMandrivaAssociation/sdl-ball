@@ -1,7 +1,7 @@
 %define rcN	rc4
 Name:	sdl-ball
 Version:	1.0
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 Summary:	Free/OpenSource brick-breaking game with pretty graphics
 Group:	Games/Arcade
 License:	GPLv2+
@@ -48,16 +48,20 @@ install -s %name %buildroot%_gamesbindir
 install -s leveleditor/gimp-leveleditor/gimp-sdlball %buildroot%_libdir/gimp/2.0/plug-ins
 cp -a themes %buildroot%_gamesdatadir/%name
 
-## TODO: level editor
+mkdir -p %buildroot%_datadir/applications
+cat << EOF > %buildroot%_datadir/applications/mandriva-%name.desktop
+[Desktop Entry]
+Name=SDL-Ball
+Exec=sdl-ball
+Icon=sdl-ball
+GenericName=Breakout Game
+Terminal=false
+Type=Application
+Categories=Game;ArcadeGame;
+EOF
 
-# below is the desktop file and icon stuff.
-##mkdir -p $RPM_BUILD_ROOT%_desktopdir
-##desktop-file-install --vendor "" \
-##  --dir $RPM_BUILD_ROOT%_desktopdir \
-##  #SOURCE2
-##mkdir -p $RPM_BUILD_ROOT%_niconsdir
-##install -p -m 644 #SOURCE1 \
-##  $RPM_BUILD_ROOT%_niconsdir
+mkdir -p %buildroot%_iconsdir
+cp themes/default/icon32.png %buildroot%_iconsdir/%name.png
 
 %clean
 rm -rf %{buildroot}
@@ -67,8 +71,9 @@ rm -rf %{buildroot}
 %_gamesbindir/%name
 %dir %_gamesdatadir/%name
 %_gamesdatadir/%name/*
+%_iconsdir/*.png
+%_datadir/applications/mandriva-%name.desktop
 
 %files leveleditor
 %doc leveleditor leveleditor/gimp-leveleditor/readme
 %_libdir/gimp/2.0/plug-ins/*
-
