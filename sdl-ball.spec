@@ -1,7 +1,7 @@
 %define rcN	rc4
 Name:	sdl-ball
-Version:	1.0
-Release: 	%mkrel 3
+Version:	1.01
+Release: 	%mkrel 1
 Summary:	Free/OpenSource brick-breaking game with pretty graphics
 Group:	Games/Arcade
 License:	GPLv2+
