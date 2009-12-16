@@ -32,6 +32,8 @@ Start gimp from a terminal in order to record the output from the plugin (you ne
 
 %prep
 %setup -q -n %name
+# clean sources
+rm -f *.o sdl-ball
 
 %build
 %setup_compile_flags
