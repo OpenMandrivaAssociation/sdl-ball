@@ -3,7 +3,7 @@
 Summary:	Free/OpenSource brick-breaking game with pretty graphics
 Name:		sdl-ball
 Version:	1.01
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		http://sdl-ball.sourceforge.net/
