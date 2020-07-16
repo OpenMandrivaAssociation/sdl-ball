@@ -14,6 +14,7 @@ BuildRequires:	pkgconfig(SDL_image)
 BuildRequires:	pkgconfig(SDL_mixer)
 BuildRequires:	pkgconfig(SDL_ttf)
 BuildRequires:	pkgconfig(sdl)
+BuildRequires:  pkgconfig(opengl)
 
 %description
 SDL-Ball is a Free/OpenSource brick-breaking game with pretty graphics.
