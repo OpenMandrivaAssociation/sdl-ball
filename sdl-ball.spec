@@ -6,7 +6,7 @@ Release:	1
 Summary:	A Free/OpenSource brick-breaking game with pretty graphics
 License:	GPLv3
 Group:		Games/Arcade
-Url:		http://dustedgames.blogspot.co.uk/p/sdl-ball_20.html
+Url:		https://dustedgames.blogspot.co.uk/p/sdl-ball_20.html
 Source0:	http://downloads.sourceforge.net/%{name}/%{version}/%{uname}_%{version}_src.tar.xz
 Source1:	%{name}.sh
 BuildRequires:	dos2unix
