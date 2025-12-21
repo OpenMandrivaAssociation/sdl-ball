@@ -9,6 +9,7 @@ Group:		Games/Arcade
 Url:		https://dustedgames.blogspot.co.uk/p/sdl-ball_20.html
 Source0:	http://downloads.sourceforge.net/%{name}/%{version}/%{uname}_%{version}_src.tar.xz
 Source1:	%{name}.sh
+BuildRequires:	make
 BuildRequires:	dos2unix
 BuildRequires:	pkgconfig(SDL_image)
 BuildRequires:	pkgconfig(SDL_mixer)
